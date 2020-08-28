@@ -3,7 +3,7 @@ X299 Hackintosh support
 ## Introduction
 The X299 Hackintosh mainstay repo is made to keep the support for these motherboards alive.
 Three years ago, the development started for handle the installation of MacOS on the new Intel-based HEDT platform.
-Since hard work has been done over the months to allow updating of hardware and software.
+Since then, hard work has been done over the months to keep the hardware and software up to date.
 
 ## Folders 
 
