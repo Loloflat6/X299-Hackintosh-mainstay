@@ -1,0 +1,399 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red191\green133\blue85;\red31\green31\blue36;\red255\green255\blue255;
+\red84\green130\blue255;\red158\green241\blue221;}
+{\*\expandedcolortbl;;\csgenericrgb\c74902\c52157\c33333;\csgenericrgb\c12054\c12284\c14131;\csgenericrgb\c100000\c100000\c100000\c85000;
+\csgenericrgb\c33019\c51127\c99859;\csgenericrgb\c61961\c94510\c86667;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17880\viewh14480\viewkind0
+\deftab593
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f0\fs56 \cf2 \cb3 # \cf4 ASUS X299 Hackintosh
+\f1\fs24 \
+\
+
+\f0\fs56 \cf2 # \cf4 Introduction
+\f1\fs24 \
+
+\f0\fs28 The ASUS X299 Hackintosh repo contains OpenCore EFI distributions and related files that can be used as a reference when starting or migrating your X299 Hackintosh to OpenCore.  While the EFIs can be used as a starting point and should be compatible with all ASUS X299 boards, it is still highly recommended to review the \cf2 [\cf4 OpenCore Vanilla Desktop Guide\cf2 ](\cf5 https://dortania.github.io/OpenCore-Install-Guide/\cf2 )\cf4  and \cf2 [\cf4 Skylake-X section\cf2 ](\cf5 https://dortania.githuFoldersb.io/OpenCore-Install-Guide/config-HEDT/skylake-x.html\cf2 )\cf4  for a proper guide.
+\f1\fs24 \
+\
+
+\f0\fs56 \cf2 # \cf4 Folders
+\f1\fs24 \
+
+\f0\fs28 | Folder | Description |
+\f1\fs24 \
+
+\f0\fs28 | :------------- | :---------- |
+\f1\fs24 \
+
+\f0\fs28 | ASUS BIOS Patch (Archive) | Contains version of UEFITool to patch ASUS BIOS versions (3006, 3101) and BIOS 0603 for Cascade Lake-X Refresh Motherboards as the CFG lock option in the BIOS is broken.  This patch disables the lock so we don't have to enable \cf2 `
+\f1\fs26 \cf6 AppleCpuPMCfgLock
+\f0\fs28 \cf2 `\cf4  and \cf2 `
+\f1\fs26 \cf6 AppleXcpmCfgLock
+\f0\fs28 \cf2 `\cf4 . |
+\f1\fs24 \
+
+\f0\fs28 | Custom BIOS Collection | Contains modified BIOS files that have custom boot logos |
+\f1\fs24 \
+
+\f0\fs28 | BASE-EFI | OpenCore EFIs with the OpenCanary GUI that should be valid for all ASUS X299 boards.  Refer to section \cf2 [\cf4 BASE-EFI Configuration\cf2 ](\cf5 https://github.com/shinoki7/Asus-X299-Hackintosh#base-efi-configuration\cf2 )\cf4  for more details. |
+\f1\fs24 \
+
+\f0\fs28 | EFI-Validated-Distributions | Validated EFIs from other users (Please use this as a reference only) | 
+\f1\fs24 \
+
+\f0\fs28 | XHC USB Kexts | USB kexts created by users for specific motherboards.  Please use \cf2 [\cf4 this\cf2 ](\cf5 https://dortania.github.io/USB-Map-Guide/\cf2 )\cf4  as a proper guide to map your USB ports. |
+\f1\fs24 \
+\
+
+\f0\fs56 \cf2 # \cf4 Personal Build Specifications
+\f1\fs24 \
+
+\f0\fs28 \cf2 ![](\cf5 /Images/aboutthismac.png\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs40 \cf2 ## \cf4 Components
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Motherboard : ASUS WS X299 Sage/10G
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  BIOS 3101 Patched
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Processor : Intel i9 9960X
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  CPU Cooler : Fractal Design S36+ AIO
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  RAM : 4x16 Corsair Vengeance RGB Pro 3200 Mhz
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  Currently clocked at 2933 Mhz
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Boot Drive : Samsung 970 EVO 1 TB
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Graphics Card : Sapphire RX 580 Pulse 8 GB
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Power Supply : Corsair RM 850x
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Case : Lian Li PC 011 Dynamic
+\f1\fs24 \
+\
+
+\f0\fs40 \cf2 ## \cf4 Additional Components / Peripherals
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  2X Gigabyte Titan Ridge Thunderbolt 3 Card 
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  Flashed with custom NVM50 firmware
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Apple Magic Keyboard 2 (Space Gray)
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Apple Magic Trackpad 2 (Space Gray)
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Apple Magic Mouse 2 (Space Gray)
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  LG 27UL600 27" 4K UHD Monitor
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  LG 27UK600 27" 4K UHD Monitor
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  LG C9 65" 4K UHD TV
+\f1\fs24 \
+\
+
+\f0\fs40 \cf2 ## \cf4 What Works
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Sleep / Wake
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Wifi and Bluetooth (Using natively supported Broadcom BCM94360CD)
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Handoff, Continuity, AirDrop, Continuity Camera, and Unlock with Apple Watch
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  iMessage, FaceTime, App Store, iTunes Store
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Ethernet
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  10Gb Ethernet
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  HEVC, H.264
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Onboard audio
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  TRIM
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  USB 2.0 / USB 3.0
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  USB 3.1 Gen 2
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Thunderbolt 3 w/ hot plug including Thunderbolt Local Node and Thunderbolt Bus. Credits @CaseySJ and contributors in his \cf2 [\cf4 thread\cf2 ](\cf5 https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28 \cf2 *\cf4  DRM
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Native NVRAM
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  CPU Power Management
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  USB Power
+\f1\fs24 \
+\
+
+\f0\fs40 \cf2 ## \cf4 What Doesn't Work
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  SideCar due to some T2 chip dependancies on MacPro7,1 and iMacPro1,1 SMBIOS (Using Duet Display as alternative)
+\f1\fs24 \
+\
+
+\f0\fs40 \cf2 ## \cf4 Comments
+\f1\fs24 \
+
+\f0\fs28 The ASUS WS X299 Sage series (WS X299 Sage, WS X299 Sage/10G, Pro WS X299 Sage II) are great motherboards with 7 PCIe slots running at 16x/8x/8x/8x/8x/8x/8x and multiple M.2/U.2 connections.  The Sage/10G even includes dual 10Gb Intel X550-AT2 LAN ports that are compatible with macOS. Unfortunately the motherboards only have a few USB ports and only a single 19 Pin USB 3.0 header for internal ports.  In order to connect internal USB devices such as Bluetooth or RGB Controllers there are a few options.  Note that the specific cables/card listed below are examples.  Just make sure the PCIe card is compatible with macOS.
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 1.\cf4  \cf2 [\cf4 USB 3.0 20 Pin Female to USB 2.0 Pin Male Adapter\cf2 ](\cf5 https://www.amazon.com/gp/product/B01MFB04JP/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28   \cf2   *\cf4  With this you will not have a USB 3.0 header to connect to the front of your case
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  Currently using this in my build with a \cf2 [\cf4 USB 2.0 9 Pin Header 1 to 4 Extension Hub Splitter\cf2 ](\cf5 https://www.amazon.com/gp/product/B085KVH16T/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1\cf2 )\cf4  to connect Bluetooth and the USB 2.0 cables for my 2 thunderbolt 3 cards.
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 2.\cf4  \cf2 [\cf4 USB 2.0 IDC 5 Male to USB A Male adapter\cf2 ](\cf5 https://www.amazon.com/gp/product/B000V6WD8A/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28   \cf2   *\cf4  Uses one of the USB ports on the back of the motherboard to connect internal devices in the case.  You can get two of these and remove 1 of the pins to make a "9 pin internal adapter".  If the cable is too short from the back to inside the case, you can get some regular USB A extension cables.
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 3.\cf4  PCIe USB 3.0 Card with Internal USB Connector
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  \cf2 [\cf4 Inateck USB 3.0 Card\cf2 ](\cf5 https://www.amazon.com/Inateck-Express-Controller-Internal-Connector/dp/B00JFR2H64/ref=sr_1_3?dchild=1&keywords=inateck+pcie+card&qid=1592455853&s=electronics&sr=1-3\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28   \cf2   *\cf4  \cf2 [\cf4 StarTech USB 3.1 PCIe Card\cf2 ](\cf5 https://www.amazon.com/gp/product/B01I39D15A/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28   \cf2   *\cf4  Can use the internal header on the card for the case USB ports or to connect internal devices.
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  NOTE: Wake from Bluetooth devices does not work with this so it's best to connect Bluetooth to one of the motherboard ports.
+\f1\fs24 \
+\
+
+\f0\fs56 \cf2 # \cf4 Base EFI Configuration
+\f1\fs24 \
+
+\f0\fs28 The Base EFI folder contains a prebuilt EFI that should be valid for all ASUS X299 motherboards.  It is currently built using OpenCore 0.6.0 with the OpenCanary GUI enabled following the Dortania OpenCore Vanilla Guide.
+\f1\fs24 \
+\
+
+\f0\fs40 \cf2 ## \cf4 1. Important BIOS Settings
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Above 4G Encoding: Enabled
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  MSR Lock: Disabled
+\f1\fs24 \
+
+\f0\fs28   \cf2   *\cf4  If option isn't available in BIOS or have trouble booting, enable \cf2 `
+\f1\fs26 \cf6 AppleCpuPmCfgLock
+\f0\fs28 \cf2 `\cf4  and \cf2 `
+\f1\fs26 \cf6 AppleXcpmCfgLock
+\f0\fs28 \cf2 `\cf4  in config.plist under Kernel-Quirks.  BIOS 3006,3101 on pre Cascade Lake X motherboards need these two quirks enabled if the BIOS is not patched.
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  CSM: Disabled
+\f1\fs24 \
+\
+
+\f0\fs40 \cf2 ## \cf4 2. Configuration
+\f1\fs24 \
+
+\f0\fs28 \cf2 1.\cf4  (Optional) Download the Resources Audio folder into the BASE-EFI folder
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  Download the \cf2 [\cf4 Audio\cf2 ](\cf5 https://github.com/acidanthera/OcBinaryData/tree/master/Resources/Audio\cf2 )\cf4  folder and copythe files to your EFI folder under \cf2 `
+\f1\fs26 \cf6 EFI-OC-Resources-Audio
+\f0\fs28 \cf2 `
+\f1\fs24 \cf4 \
+
+\f0\fs28 \cf2 2.\cf4  Ethernet: 
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  For WS X299 Sage/10G users replace IntelMausi with \cf2 [\cf4 SmallTreeIntel8259x\cf2 ](\cf5 https://small-tree.com/support/downloads/10-gigabit-ethernet-driver-download-page/\cf2 )\cf4  kext and update the kext entry.  NOTE: Requires Ubuntu EEPROM modding outlined in @KGPs \cf2 [\cf4 guide section E.8.2.2\cf2 ](\cf5 https://www.tonymacx86.com/threads/how-to-build-your-own-imac-pro-successful-build-extended-guide.229353/\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28    \cf2  *\cf4  For users with I211 NICs like the X299 Deluxe, copy the \cf2 [\cf4 SmallTreeIntel82576\cf2 ](\cf5 https://github.com/khronokernel/SmallTree-I211-AT-patch/releases\cf2 )\cf4  kext to your EFI folder and add a new kext entry under \cf2 `
+\f1\fs26 \cf6 Kernel-Add
+\f0\fs28 \cf2 `
+\f1\fs24 \cf4 \
+
+\f0\fs28 \cf2 3.\cf4  TSCAdjustReset:
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  From the Kexts-TSCAdjustReset \cf2 [\cf4 folder\cf2 ](\cf5 https://github.com/shinoki7/Asus-X299-Hackintosh/tree/master/Kexts/TSCAdjustReset\cf2 )\cf4 , download the zip with the number of cores your processor and extract the file.  Copy this file to your EFI folder under \cf2 `
+\f1\fs26 \cf6 EFI-OC-Kexts
+\f0\fs28 \cf2 `
+\f1\fs24 \cf4 \
+
+\f0\fs28 \cf2 4.\cf4  SSDT-RTC0: 
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  By default, the Base-EFI folder assumes you're on the latest BIOS and has SSDT-RTC0.aml enabled.  If you're on a pre Cascade Lake X motherboard and BIOS version below 3000 (i.e 2002) replace SSDT-RTC0.aml in your EFI folder with \cf2 [\cf4 SSDT-RTC0-NOAWAC.aml\cf2 ](\cf5 https://github.com/shinoki7/Asus-X299-Hackintosh/blob/master/SSDT/SSDT-RTC0-NOAWAC.aml\cf2 )\cf4  and rename to SSDT-RTC0.aml
+\f1\fs24 \
+
+\f0\fs28 \cf2 5.\cf4  CFG Lock:
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  By default, the Base-EFI folder assumes you're on the latest patched BIOS.
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  Asus released a new 0702 BIOS for Cascade Lake X Refresh motherboards that fixed MSR lock functionality.  UEFITool no longer needs to be run on this new BIOS.  Once ASUS releases an update for the rest of the boards, patching with UEFITool will no longer be required.    
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  If you are having issues booting with patched BIOS, reflash the latest non patched BIOS and enable \cf2 `
+\f1\fs26 \cf6 AppleCpuPmCfgLock
+\f0\fs28 \cf2 `\cf4  and \cf2 `
+\f1\fs26 \cf6 AppleXcpmCfgLock
+\f0\fs28 \cf2 `\cf4  in config.plist under Kernel-Quirks.  
+\f1\fs24 \
+
+\f0\fs28 \cf2 6.\cf4  PlatformInfo: 
+\f1\fs24 \
+
+\f0\fs28     You will need to create your own Serial Number and SMUUID.  Instructions can be found \cf2 [\cf4 here\cf2 ](\cf5 https://dortania.github.io/OpenCore-Desktop-Guide/config-HEDT/skylake-x.html#platforminfo\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28    \cf2  *\cf4  Remember to adjust the Type depending on which SMBIOS you are using.  Either iMacPro1,1 or MacPro7,1
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  NOTE: MacPro7,1 only works on Catalina and higher.  Also enable MacProMemoryNotifcationDisabler.kext in config.plist under \cf2 `
+\f1\fs26 \cf6 Kernel-Add
+\f0\fs28 \cf2 `\cf4  
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  Using your results from GenSMBIOS, adjust the following (replace 'Removed!!')
+\f1\fs24 \
+
+\f0\fs28       \cf2   *\cf4  \cf2 `
+\f1\fs26 \cf6 PlatformInfo-Generic
+\f0\fs28 \cf2 `
+\f1\fs24 \cf4 \
+
+\f0\fs28           \cf2   *\cf4  MLB: Board Serial
+\f1\fs24 \
+
+\f0\fs28           \cf2   *\cf4  SystemSerialNumber: Serial
+\f1\fs24 \
+
+\f0\fs28           \cf2   *\cf4  SystemUUID: SmUUID
+\f1\fs24 \
+
+\f0\fs28           \cf2   *\cf4  SystemProductName: SMBIOS (iMacPro1,1 or MacPro7,1)
+\f1\fs24 \
+
+\f0\fs28 \cf2 6.\cf4  Post-Install
+\f1\fs24 \
+
+\f0\fs28    \cf2  *\cf4  It is highly recommended to create your own USB kext. Please use \cf2 [\cf4 this\cf2 ](\cf5 https://dortania.github.io/USB-Map-Guide/\cf2 )\cf4  as a proper guide to map your USB ports.
+\f1\fs24 \
+\
+
+\f0\fs56 \cf2 # \cf4 Additional Kexts
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 SmallTreeIntel8259x\cf2 ](\cf5 https://small-tree.com/support/downloads/10-gigabit-ethernet-driver-download-page/\cf2 )\cf4  
+\f1\fs24 \
+
+\f0\fs28   \cf2 *\cf4  Enables built-in Intel 10G ethernet ports on the Sage/10G.
+\f1\fs24 \
+
+\f0\fs28   \cf2 *\cf4  Install the version compatible with your version of macOS.
+\f1\fs24 \
+
+\f0\fs28   \cf2 *\cf4  Ubuntu EEPROM modding in @KGPs \cf2 [\cf4 guide section E.8.2.2\cf2 ](\cf5 https://www.tonymacx86.com/threads/how-to-build-your-own-imac-pro-successful-build-extended-guide.229353/\cf2 )\cf4  is required for this kext to work.
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 IntelMausi\cf2 ](\cf5 https://github.com/acidanthera/IntelMausi/releases\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28   \cf2 *\cf4  Enables ethernet for most intel controllers
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 SmallTreeIntel82576\cf2 ](\cf5 https://github.com/khronokernel/SmallTree-I211-AT-patch/releases\cf2 )
+\f1\fs24 \cf4 \
+
+\f0\fs28   \cf2 *\cf4  Enables ethernet for I211 NICs
+\f1\fs24 \
+
+\f0\fs28   \cf2 *\cf4  Version 1.3 is for macOS Catalina, Version 1.2.5 is for macOS 10.13 and 10.14
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 AGPMInjector\cf2 ](\cf5 https://github.com/Pavo-IM/AGPMInjector\cf2 )\cf4  
+\f1\fs24 \
+
+\f0\fs28   \cf2 *\cf4  Apple Graphics Power Management injector
+\f1\fs24 \
+
+\f0\fs28   
+\f1\fs24 \
+
+\f0\fs56 \cf2 # \cf4 macOS Big Sur Installation
+\f1\fs24 \
+
+\f0\fs28 Refer to \cf2 [\cf4 Dortania Big Sur Section\cf2 ](\cf5 https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/\cf2 )\cf4  for more information and known issues.
+\f1\fs24 \
+\
+
+\f0\fs56 \cf2 # \cf4 Credits
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  Apple : macOS
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 Acidanthera\cf2 ](\cf5 https://github.com/acidanthera\cf2 )\cf4  : OpencorePkg, kexts, etc.
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 Dortania\cf2 ](\cf5 https://github.com/dortania\cf2 )\cf4  : Opencore guide
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 dracoflar\cf2 ](\cf5 https://github.com/khronokernel\cf2 )\cf4  : Modified SSDT-EC-USBX, PLUG, and SBUS-MCHC files, SmallTree 211 patch, SSDT-RTC0 patch for macOS Big Sur
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  \cf2 [\cf4 Pavo\cf2 ](\cf5 https://github.com/Pavo-IM\cf2 )\cf4  : AGPMInjector
+\f1\fs24 \
+
+\f0\fs28 \cf2 *\cf4  izo1, shael : EFIs and custom boot logos}
