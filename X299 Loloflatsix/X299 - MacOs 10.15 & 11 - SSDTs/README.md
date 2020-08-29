@@ -9,7 +9,8 @@ Some SSTs from previous distribution are deprecated :
 - SSDT -DTGP  ---------> SSDT-SBUS-MCHC
 - SSDT - EC  -----|
                              --------> SSDT-EC-USBX-X299
-- SSDT - USBX --|
+- SSDT - USBX ----|
+
 New SSDTs are requiried :
 - RTC0-NOAWAC( Bios before Cascade Lake X)
 - SSDT-RTC0 (BIOS Cascade Lake X and higher or all Cascade Lake X motherboards).
