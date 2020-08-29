@@ -7,7 +7,7 @@ So some new SSDTs are now requiried to boot and have a stable system.
 ## Distribution
 Some SSTs from previous distribution are deprecated :
 - SSDT -DTGP  ---------> SSDT-SBUS-MCHC
-- SSDT - EC  -----|
+- SSDT - EC  -------|
                              --------> SSDT-EC-USBX-X299
 - SSDT - USBX ----|
 
